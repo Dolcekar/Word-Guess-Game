@@ -1,0 +1,29 @@
+/* /*#container {
+    background-image:url(../images/background.JPG);
+    background-position: center, center;
+    width: 1000px;
+    height: 1000px;
+    background-repeat:/* no-repeat, no-repeat;
+    margin: auto;
+/* } */
+#banner {
+    background-image:url(../images/hobbitDecor.gif);
+    background-position: top center;
+    
+    width: 900px;
+    height: 900px;
+    background-repeat: no-repeat;
+    
+    margin: auto;
+}
+
+#background {
+    
+    background-image:url(../images/hobbitHouse.jpg), url(../images/background.JPG);
+    background-position: center, center;
+    width: 900px;
+    height: 900px;
+    background-repeat: no-repeat, no-repeat;
+    margin: auto;
+    
+}
