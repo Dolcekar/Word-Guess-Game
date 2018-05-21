@@ -13,7 +13,7 @@
     width: 900px;
     height: 900px;
     background-repeat: no-repeat;
-    
+    border-radius: 100px;
     margin: auto;
 }
 
@@ -26,4 +26,20 @@
     background-repeat: no-repeat, no-repeat;
     margin: auto;
     
+}
+#newGameButton {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    background-color: green;
+    font-size: 22px;
+    font-weight: bold;
+    color: beige;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 25px;
+    margin-left: 220px;
+    border-radius: 50px;
+    box-shadow: 0 6px grey;
 }
