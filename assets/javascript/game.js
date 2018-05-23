@@ -1,13 +1,13 @@
 
-document.onkeyup = function(event) {
+
 
     // DOM Variables
     var newGameButton = document.getElementById("newGameButton");
     var placeholders = document.getElementById("placeholders");
     var guessedLetters = document.getElementById("guessedLetters");
-    var guessesLeft = document.getElementById("guessesLeft");
-    var wins = document.getElementById("wins");
-    var losses = document.getElementById("losses");
+    var guessesLeftDiv = document.getElementById("guessesLeft");
+    var winsDiv = document.getElementById("wins");
+    var lossesDiv = document.getElementById("losses");
 
     //Game Variables
     var words = ["bilbo","fellowship","baggins","halflings","shire"];
@@ -19,8 +19,9 @@ document.onkeyup = function(event) {
     var answerArray = [];
     var pickedRightLetter = [];
     var pickedWrongLetter = [];
-    
-    
+    var pressedFirstLetter = true;
+
+
    function newGame () {
        gameRunning = true;
        guessesLeft = 6;
@@ -41,7 +42,7 @@ document.onkeyup = function(event) {
                console.log(answerArray);
            }
        
-        guessesLeft.textContent = guessesLeft;
+        guessesLeftDiv.textContent = guessesLeft;
         placeholders.textContent = answerArray.join(' ');
         guessedLetters.textContent = pickedWrongLetter;
         }
@@ -70,11 +71,14 @@ document.onkeyup = function(event) {
      }
  
     function checkIncorrect(letter) {
-        if (answerArray.indexOf(letter.toLowerCase()) === -1 && answerArray.indexOf(letter.toUpperCase()) === -1) {
+        if (answerArray.indexOf(letter.toLowerCase()) === -1 
+            &&
+            answerArray.indexOf(letter.toUpperCase()) === -1) 
+            {
             guessesLeft--;
             pickedWrongLetter.push(letter);
             guessedLetters.textContent = pickedWrongLetter.join('');
-            guessesLeft.textContent = guessesLeft;
+            guessesLeftDiv.textContent = guessesLeft;
         }
         checkLoss();
     }
@@ -82,7 +86,8 @@ document.onkeyup = function(event) {
         if ( guessesLeft === 0) {
             losses++;
             gameRunning = false;
-            losses.textContent = losses;
+            lossesDiv.textContent = losses;
+            placeholders.textContent = pickedWord;
         }
         checkWin();
     }
@@ -90,17 +95,21 @@ document.onkeyup = function(event) {
         if (pickedWord.toLowerCase() === answerArray.join('').toLowerCase()) {
             wins++;
             gameRunning = false;
-            wins.textContent = wins;
+            winsDiv.textContent = wins;
         }     
     }
-newGameButton.addEventListener("click", newGame);
+//document.addEventListener("click", newGame)
 
 // These instructions trigger letter guess on the keyboard to be acceptable characters.
 document.onkeyup = function(event) {
     if (event.keyCode >= 65 && event.keyCode <= 90) {
         letterGuess(event.key);
+
     }
-}
 
 }
+
+
+
+    
 
